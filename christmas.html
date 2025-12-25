@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Wishes from Pascal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a3d2f;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(#1a5e4a 2px, transparent 2px),
+                radial-gradient(#1a5e4a 2px, transparent 2px);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .flake {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation-name: snowfall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .christmas-title {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 4.5rem;
+            color: #e63946;
+            text-shadow: 3px 3px 0 #2d6a4f, 6px 6px 0 rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .from-pascal {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 2.5rem;
+            color: #f8f9fa;
+            text-shadow: 2px 2px 0 #1b4332;
+            margin-top: -10px;
+        }
+
+        .main-content {
+            background-color: rgba(26, 94, 74, 0.85);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 8px solid #b93e3e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" fill="%231b4332" opacity="0.1"><path d="M50,5 L60,35 L90,35 L65,55 L75,85 L50,70 L25,85 L35,55 L10,35 L40,35 Z"/></svg>');
+            background-size: 60px;
+            z-index: -1;
+        }
+
+        .wish-button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .wish-button {
+            background: linear-gradient(to bottom, #e63946, #b93e3e);
+            border: none;
+            border-radius: 50px;
+            padding: 20px 50px;
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 2.2rem;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        .wish-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to bottom, #ff4d6d, #e63946);
+        }
+
+        .wish-button:active {
+            transform: translateY(0);
+        }
+
+        .wish-button::after {
+            content: "🎄";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+        }
+
+        .wish-form-container {
+            display: none;
+            background-color: rgba(27, 67, 50, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 5px solid #e63946;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-title {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 2.5rem;
+            color: #f8f9fa;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-instruction {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            color: #d8f3dc;
+            font-style: italic;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: #f8f9fa;
+            font-weight: 600;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            background-color: #1b4332;
+            border: 3px solid #e63946;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .input-field::placeholder {
+            color: #95d5b2;
+            font-style: italic;
+        }
+
+        .wish-textarea {
+            width: 100%;
+            height: 150px;
+            background-color: #1b4332;
+            border: 3px solid #e63946;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            resize: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .wish-textarea::placeholder {
+            color: #95d5b2;
+            font-style: italic;
+        }
+
+        .submit-button {
+            display: block;
+            margin: 20px auto 0;
+            background: linear-gradient(to bottom, #40916c, #2d6a4f);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 40px;
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 1.8rem;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to bottom, #52b788, #40916c);
+        }
+
+        .message-container {
+            display: none;
+            text-align: center;
+            padding: 40px 30px;
+            background-color: rgba(27, 67, 50, 0.95);
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 5px solid #e63946;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .santa-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .message-title {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 2.8rem;
+            color: #f8f9fa;
+            margin-bottom: 15px;
+        }
+
+        .message-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #d8f3dc;
+            margin-bottom: 15px;
+        }
+
+        .personal-wish {
+            font-size: 1.5rem;
+            color: #ffd166;
+            font-weight: 600;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(27, 67, 50, 0.7);
+            border-radius: 10px;
+            border-left: 5px solid #e63946;
+            font-style: italic;
+        }
+
+        .final-message {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 3rem;
+            color: #e63946;
+            margin-top: 30px;
+            text-shadow: 2px 2px 0 #1b4332;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .christmas-decoration {
+            position: absolute;
+            font-size: 2rem;
+            z-index: -1;
+        }
+
+        .decoration-1 {
+            top: 20px;
+            left: 5%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .decoration-2 {
+            top: 40px;
+            right: 10%;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .decoration-3 {
+            bottom: 30px;
+            left: 15%;
+            animation: float 7s infinite ease-in-out;
+        }
+
+        .decoration-4 {
+            bottom: 50px;
+            right: 5%;
+            animation: float 9s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #95d5b2;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .christmas-title {
+                font-size: 3rem;
+            }
+            
+            .from-pascal {
+                font-size: 1.8rem;
+            }
+            
+            .wish-button {
+                font-size: 1.8rem;
+                padding: 15px 30px;
+            }
+            
+            .main-content {
+                padding: 25px;
+            }
+            
+            .final-message {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="snow" id="snow-container"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="christmas-title">Merry Christmas</h1>
+            <p class="from-pascal">From Pascal</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="christmas-decoration decoration-1">🎁</div>
+            <div class="christmas-decoration decoration-2">🌟</div>
+            <div class="christmas-decoration decoration-3">🦌</div>
+            <div class="christmas-decoration decoration-4">🔔</div>
+            
+            <div class="wish-button-container" id="initialButton">
+                <button class="wish-button" id="tapButton">
+                    <i class="fas fa-hand-point-up"></i> Tap Here to Make a Wish
+                </button>
+            </div>
+            
+            <div class="wish-form-container" id="wishFormContainer">
+                <h2 class="form-title">Tell Santa Your Christmas Wish</h2>
+                <p class="form-instruction">Remember, you can only ask for one special thing this Christmas!</p>
+                
+                <div class="input-group">
+                    <label class="input-label" for="fullName">Your Full Name:</label>
+                    <input type="text" id="fullName" class="input-field" placeholder="Enter your full name">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label" for="wishText">Your One Christmas Wish:</label>
+                    <textarea class="wish-textarea" id="wishText" placeholder="What one special thing would you like for Christmas?"></textarea>
+                </div>
+                
+                <button class="submit-button" id="submitButton">Send to Santa 🎅</button>
+            </div>
+            
+            <div class="message-container" id="messageContainer">
+                <span class="santa-icon">🎅</span>
+                <h2 class="message-title">Santa Has Received Your Message!</h2>
+                <p class="message-text">He will do well to deliver your present if you believe!</p>
+                
+                <div class="personal-wish" id="personalMessage"></div>
+                
+                <p class="message-text">The elves are already working on your special request at the North Pole! 🎄✨</p>
+                <p class="message-text">Keep believing in the magic of Christmas!</p>
+                
+                <div class="final-message" id="merryChristmasMessage"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Wishing you a magical Christmas filled with joy and happiness! 🎄</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create snowfall effect
+        function createSnow() {
+            const snowContainer = document.getElementById('snow-container');
+            const snowflakesCount = 80;
+            
+            for (let i = 0; i < snowflakesCount; i++) {
+                const flake = document.createElement('div');
+                flake.classList.add('flake');
+                
+                // Random size between 5px and 15px
+                const size = Math.random() * 10 + 5;
+                flake.style.width = `${size}px`;
+                flake.style.height = `${size}px`;
+                
+                // Random position
+                flake.style.left = `${Math.random() * 100}vw`;
+                
+                // Random opacity
+                flake.style.opacity = Math.random() * 0.7 + 0.3;
+                
+                // Random animation duration between 5 and 15 seconds
+                const duration = Math.random() * 10 + 5;
+                flake.style.animationDuration = `${duration}s`;
+                
+                // Random animation delay
+                flake.style.animationDelay = `${Math.random() * 5}s`;
+                
+                snowContainer.appendChild(flake);
+            }
+        }
+        
+        // DOM elements
+        const tapButton = document.getElementById('tapButton');
+        const wishFormContainer = document.getElementById('wishFormContainer');
+        const messageContainer = document.getElementById('messageContainer');
+        const fullNameInput = document.getElementById('fullName');
+        const wishText = document.getElementById('wishText');
+        const submitButton = document.getElementById('submitButton');
+        const personalMessage = document.getElementById('personalMessage');
+        const merryChristmasMessage = document.getElementById('merryChristmasMessage');
+        const initialButton = document.getElementById('initialButton');
+        
+        // Store wishes to prevent multiple submissions
+        let wishSubmitted = false;
+        
+        // Event listeners
+        tapButton.addEventListener('click', function() {
+            if (wishSubmitted) {
+                alert("You've already made your Christmas wish! Santa is working on it! 🎅");
+                return;
+            }
+            
+            // Hide button and show form
+            initialButton.style.display = 'none';
+            wishFormContainer.style.display = 'block';
+            
+            // Add some fun effects
+            this.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 300);
+        });
+        
+        submitButton.addEventListener('click', function() {
+            const fullName = fullNameInput.value.trim();
+            const wish = wishText.value.trim();
+            
+            if (fullName === '') {
+                alert("Please enter your full name so Santa knows who you are!");
+                fullNameInput.focus();
+                return;
+            }
+            
+            if (wish === '') {
+                alert("Please tell Santa your Christmas wish!");
+                wishText.focus();
+                return;
+            }
+            
+            // Mark wish as submitted
+            wishSubmitted = true;
+            
+            // Create personalized message
+            const firstName = fullName.split(' ')[0];
+            personalMessage.innerHTML = `"${wish}"<br><span style="font-size: 1.2rem; color: #95d5b2;">- From ${fullName}</span>`;
+            
+            // Create personalized Merry Christmas message
+            merryChristmasMessage.textContent = `Merry Christmas, ${firstName}! 🎄`;
+            
+            // Hide form and show message
+            wishFormContainer.style.display = 'none';
+            messageContainer.style.display = 'block';
+            
+            // Add celebration effects
+            createCelebrationEffects();
+        });
+        
+        // Create celebration effects when wish is submitted
+        function createCelebrationEffects() {
+            const container = document.querySelector('.main-content');
+            
+            // Add some floating emojis
+            const emojis = ['🎄', '🎁', '🌟', '🦌', '🔔', '⛄', '✨', '❄️'];
+            
+            for (let i = 0; i < 20; i++) {
+                const emoji = document.createElement('div');
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.position = 'absolute';
+                emoji.style.fontSize = `${Math.random() * 30 + 20}px`;
+                emoji.style.left = `${Math.random() * 100}%`;
+                emoji.style.top = `${Math.random() * 100}%`;
+                emoji.style.opacity = '0';
+                emoji.style.zIndex = '1000';
+                emoji.style.pointerEvents = 'none';
+                
+                container.appendChild(emoji);
+                
+                // Animate the emoji
+                const animation = emoji.animate([
+                    { opacity: 0, transform: 'translateY(0) scale(0)' },
+                    { opacity: 1, transform: 'translateY(-150px) scale(1)' },
+                    { opacity: 0, transform: 'translateY(-300px) scale(0.5)' }
+                ], {
+                    duration: Math.random() * 2000 + 1000,
+                    delay: Math.random() * 500
+                });
+                
+                // Remove emoji after animation
+                animation.onfinish = () => {
+                    emoji.remove();
+                };
+            }
+            
+            // Play a Christmas sound (using Web Audio API)
+            playChristmasSound();
+        }
+        
+        // Play a simple Christmas melody
+        function playChristmasSound() {
+            if (window.AudioContext || window.webkitAudioContext) {
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    
+                    // Play a simple "Jingle Bells" sequence
+                    const notes = [523.25, 523.25, 523.25, 392, 440, 493.88, 523.25];
+                    const durations = [0.2, 0.2, 0.4, 0.2, 0.2, 0.4, 0.4];
+                    
+                    let currentTime = audioContext.currentTime;
+                    
+                    for (let i = 0; i < notes.length; i++) {
+                        const oscillator = audioContext.createOscillator();
+                        const gainNode = audioContext.createGain();
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(audioContext.destination);
+                        
+                        oscillator.frequency.value = notes[i];
+                        oscillator.type = 'sine';
+                        
+                        gainNode.gain.setValueAtTime(0, currentTime);
+                        gainNode.gain.linearRampToValueAtTime(0.2, currentTime + 0.01);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, currentTime + durations[i]);
+                        
+                        oscillator.start(currentTime);
+                        oscillator.stop(currentTime + durations[i]);
+                        
+                        currentTime += durations[i] + 0.05;
+                    }
+                } catch (e) {
+                    console.log("Audio not available");
+                }
+            }
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            createSnow();
+            
+            // Add some initial animation to the button
+            setTimeout(() => {
+                tapButton.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    tapButton.style.transform = 'scale(1)';
+                }, 300);
+            }, 500);
+            
+            // Prevent form submission on Enter key
+            fullNameInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+            
+            wishText.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    submitButton.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
